@@ -7,7 +7,7 @@ from time import sleep
 #Configuração do Layout
 st.set_page_config(page_title="Previsão e prevenção de Acidentes", layout="centered", page_icon="🤖")
 
-st.title("Utilização do Modelo para Previsão")
+st.subheader("Utilização do Modelo para Previsão")
 
 #Verificação do Modelo
 if "modelo" not in st.session_state:
@@ -42,7 +42,6 @@ else:
         #Barra de Progresso
         progress = st.progress(0)        
         for percent_complete in range(100):
-            sleep(0.001)
             progress.progress(percent_complete + 1)
 
             #Criação e tratamento da previsão para posterior visualização
@@ -56,7 +55,7 @@ else:
         st.markdown(f"*Previsão de Ocorrência para esse cliente:*  **{previsao[0]}**")
         porcent = (previsao_porcent).max()
         if porcent >0.5:
-            st.markdown("<hr style='border:1px solid blue'> ", unsafe_allow_html=True)
+            st.markdown("<hr style='border:1px solid green'> ", unsafe_allow_html=True)
             st.text(f"Probabilidade: {porcent*100:.2f}%")
                     
 

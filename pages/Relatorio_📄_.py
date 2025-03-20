@@ -1,14 +1,14 @@
 #Bibliotecas
 import streamlit as st
 import matplotlib.pyplot as plt
-
+from seaborn import set_theme, despine
 
 
 #Configuração de layout
 st.set_page_config(page_title="Relatório Financeiro", layout="wide", page_icon="💵")
 
 
-st.title("Retorno Financeiro do Modelo" )
+st.subheader("Retorno Financeiro do Modelo" )
 
 
 if "confusao_calculos" not in st.session_state:
@@ -22,7 +22,7 @@ else:
         pb = st.number_input("Prêmio Baixo - R$:", value=1200)
         cs = st.number_input("Custo Médio por Sinistro - R$:", value=15000)
         taxa_cancelamento = st.slider("Taxa de Cancelamento - Clientes Insatisfeitos (%):", value=10.0, min_value=0.0, max_value=100.0) / 100
-        ltv = st.number_input("Valor Médio Vitalício do Cliente (LTV) - R$:", value=8000)
+        ltv = st.number_input("Valor Médio Vitalício do Cliente (LTV) - R$:", value=4000)
         calcular = st.button("Gerar o Relatório")
 
     if calcular:
@@ -88,13 +88,13 @@ else:
 
             st.markdown("<hr style='border:1px solid green'> ", unsafe_allow_html=True)
 
-            st.markdown("**Receitas Totais:**")
+            st.markdown(":green[**Receitas Totais:**]")
             st.text(f"R$ {receita_total:,.2f}")
 
             st.markdown("**Total LTV dos Clientes Retidos:**")
             st.write(f"R$ {total_ltv_retido:,.2f}")
 
-            st.markdown("**Custos Totais:**")
+            st.markdown(":red[**Custos Totais:**]")
             st.text(f"R$ {custo_total:,.2f}")
 
 
@@ -102,21 +102,21 @@ else:
         with col2:
                 st.subheader("Detalhamento por Categoria")
 
-                st.markdown("**Acidentes corretamente previstos (VP):**")
+                st.markdown(":green[**Acidentes corretamente previstos (VP):**]")
                 st.text(f"Receita Gerada: R$ {receita_vp:,.2f}")
                 st.text(f"Custo de Sinistros: R$ {custo_sinistro_vp:,.2f}")
                 st.text(f"Retorno Bruto da Categoria: R$ {lucro_vp:,.2f}")
 
-                st.markdown("**Não Acidentes corretamente previstos (VN):**")
+                st.markdown(":green[**Não Acidentes corretamente previstos (VN):**]")
                 st.text(f"Receita Gerada: R$ {receita_vn:,.2f}")
                 st.text(f"Lucro: R$ {lucro_vn:,.2f}")
 
-                st.markdown("**Falsos Alertas de Acidente (FP):**")
+                st.markdown(":red[**Falsos Alertas de Acidente (FP):**]")
                 st.text(f"Receita Gerada: R$ {receita_fp:,.2f}")
                 st.text(f"Perdas por Cancelamento: R$ {perda_cancelamento:,.2f}")
                 st.text(f"Lucro Ajustado para a categoria: R$ {lucro_fp:,.2f}")
 
-                st.markdown("**Acidentes não previstos (FN):**")
+                st.markdown(":red[**Acidentes não previstos (FN):**]")
                 st.text(f"Receita Gerada: R$ {receita_fn:,.2f}")
                 st.text(f"Custo de Sinistros: R$ {custo_sinistro_fn:,.2f}")
                 st.text(f"Retorno Bruto da Categoria: R$ {lucro_fn:,.2f}")
@@ -128,9 +128,8 @@ else:
 
 #Terceira coluna
         with col3:
-             
-            
-            # Dados para o gráfico
+
+             # Dados para o gráfico
             categorias = ['Acidentes Previstos', 'Não Acidentes Previstos', 'Falsos Alertas', 'Acidentes não Previstos', 'Clientes Retidos']
             valores = [lucro_vp, lucro_vn, lucro_fp, lucro_fn, total_ltv_retido]
 
@@ -139,7 +138,8 @@ else:
 
             # Criar o gráfico
             fig, ax = plt.subplots()
-            barras = ax.bar(categorias, valores, color=cores)
+            set_theme("paper", "white")                     
+            barras = ax.bar(categorias, valores, color=cores)            
 
             # Adicionar valores acima das barras
             for idx, barra in enumerate(barras):
@@ -147,14 +147,15 @@ else:
                 ax.text(barra.get_x() + barra.get_width() / 2, altura,
                         f'R$ {valores[idx]:,.2f}',
                         ha='center', va='bottom' if altura >= 0 else 'top',
-                        color='black', fontsize=9)
+                        color='black', fontsize=10)
 
             # Configurações do gráfico
+            despine(top=True, right=True, left=False, bottom=False)
             ax.set_xlabel('Categorias')
             ax.set_ylabel('Lucro/Prejuízo (R$)')
             ax.set_title('Lucro vs Prejuízo por Categoria ')
-            ax.axhline(0, color='black', linewidth=1.2)
-            ax.grid(axis='y', linestyle='--', linewidth=0.3)
+            ax.axhline(0, color='black', linewidth=1.5)
+            ax.grid(axis='y', linestyle='--', linewidth=0.4, color="grey")
             plt.tight_layout()
             plt.xticks(rotation=25)
 
@@ -162,6 +163,3 @@ else:
             st.subheader("Visualização do Lucro/Prejuízo por Categoria ")
             st.pyplot(fig, use_container_width=True)
 
-
-
-                
