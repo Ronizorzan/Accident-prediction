@@ -155,7 +155,7 @@ if processar:
                 st.markdown(f":green[Acurácia Aproximada do Modelo:] **{acuracia*100:.2f}** %")                                
                 st.markdown("<hr style='border:1px green'hr> ", unsafe_allow_html=True)
                 st.markdown("*As métricas abaixo nos mostra uma visão mais abrangente do desempenho do modelo em diferentes cenários*!")
-                st.text(f"->{classification}")
+                st.code(f"->{classification}")
                 st.markdown(":green[**Precision:**] *De todos classificados em determinada classe quantos de fato pertenciam à ela*")
                 st.markdown(":green[**Recall:**] *Capacidade do Modelo de identificar corretamente determinada classe*")
                 st.markdown(":green[**F1-Score:**] *Combina harmonicamente Precisão e Recall* ")
