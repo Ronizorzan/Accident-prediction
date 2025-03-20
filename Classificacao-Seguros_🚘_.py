@@ -152,8 +152,7 @@ if processar:
                         Pode ser interessante verificar não só onde o modelo acerta, mas também onde ele está errando e porque! \
                         Entendendo isso seria possível não só entender melhor o comportamento dos clientes, \
                         mas também desenvolver modelos mais acertivos no futuro")
-                st.markdown(f":green[Acurácia Aproximada do Modelo:] **{acuracia*100:.2f}** %")                                
-                st.markdown("<hr style='border:1px green'hr> ", unsafe_allow_html=True)
+                st.markdown(f":green[Acurácia Aproximada do Modelo:] **{acuracia*100:.2f}** %")                                                
                 st.markdown("*As métricas abaixo nos mostra uma visão mais abrangente do desempenho do modelo em diferentes cenários*!")
                 st.code(f"->{classification}")
                 st.markdown(":green[**Precision:**] *De todos classificados em determinada classe quantos de fato pertenciam à ela*")
