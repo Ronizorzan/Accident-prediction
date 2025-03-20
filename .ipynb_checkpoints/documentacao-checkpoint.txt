@@ -1,0 +1,17 @@
+O Objetivo Transformador:
+Imaginemos uma seguradora de veículos automotivos inovadora que, utilizando avançadas técnicas de machine learning, consegue prever com precisão quais clientes têm maior probabilidade de sofrer acidentes. Com essas previsões, a seguradora implementa medidas preventivas personalizadas para cada cliente, reduzindo significativamente o número de acidentes e melhorando a segurança nas estradas.
+
+Medidas Proativas e Apólices Justas:
+Equipados com um modelo de alta precisão, os gestores conseguem oferecer prêmios de seguros mais justos e personalizados, refletindo o risco real de cada cliente. Isso não só otimiza os lucros da empresa, mas também promove uma relação de confiança e satisfação com os clientes, que se sentem valorizados e protegidos.
+
+Abordagens Diversificadas e Transparência:
+Além de um modelo que prevê a ocorrência de acidentes,há também um modelo prevê a gravidade das ocorrências. A seguradora adota uma abordagem multifacetada, oferecendo diferentes tipos de seguros baseados tanto na probabilidade de acidentes quanto na sua gravidade. Com mecanismos de explicabilidade incorporados, os gestores têm total clareza sobre os fatores que influenciam cada previsão, permitindo decisões bem-informadas e transparentes.
+
+Aplicação Web Intuitiva:
+A inovação não para por aí. Todas essas funcionalidades são integradas em uma aplicação web intuitiva e funcional, que simplifica o processo de consulta e gerenciamento de apólices para os gestores. Com uma interface amigável e recursos adicionais, a aplicação se torna uma ferramenta essencial no dia a dia da empresa.
+
+Essa abordagem não só transforma a maneira como os seguros automotivos são administrados, mas também estabelece um novo padrão de excelência e inovação na indústria. A seguradora não está apenas acompanhando a tecnologia - está liderando o caminho rumo a um futuro mais seguro e justo para todos.
+
+
+GOSTARIA DE CONHECER?
+Confira aqui: https://share.streamlit.io/signup
