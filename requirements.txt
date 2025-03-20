@@ -92,3 +92,4 @@ watchdog==4.0.0
 webencodings==0.5.1
 zipp==3.18.0
 lime==0.2.0.1
+seaborn==0.13.2
